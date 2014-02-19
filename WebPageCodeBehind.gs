@@ -1,30 +1,6 @@
 /*
 * Copyright (c) 2014-2015, Minal Mishra
 * All rights reserved.
-*
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions are met:
-* * Redistributions of source code must retain the above copyright
-* notice, this list of conditions and the following disclaimer.
-* * Redistributions in binary form must reproduce the above copyright
-* notice, this list of conditions and the following disclaimer in the
-* documentation and/or other materials provided with the distribution.
-* * Neither the name of the Weather Channel nor the names of the
-* contributors may be used to endorse or promote products
-* derived from this software without specific prior written permission.
-*
-* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-* ''AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
-* TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-* PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL MICHAEL JOHN BE LIABLE FOR ANY
-* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-*
 */
 
 // global constants
@@ -88,16 +64,6 @@ function createForm_(container) {
   var getUsersSubMessageLabel = container.createLabel().setText("(Users available on selected date)");
   decorateLabel1_(getUsersSubMessageLabel);
   
-  //GRID FOR DATE & REFRESHBUTTON
-//  var grid = container.createGrid(1,2);
-//  grid.setBorderWidth(1)
-//       .setCellSpacing(2)
-//       .setCellPadding(2);
-//  
-//  grid.setWidget(0,0,datePicker);
-//  grid.setWidget(0,1,getUsersButton);
-//  
-  
   //CHECKBOX & SELECTION LABEL
   var selectionLabel = container.createLabel().setText("3. Do You Want To Come?");
   selectionLabel.setWidth(LABEL_WIDTH);
@@ -156,7 +122,6 @@ function createForm_(container) {
   vPanel.add(datePickedLabel);
   vPanel.add(datePicker);
   vPanel.add(getUsersButton);
-  //vPanel.add(grid);
   vPanel.add(selectionLabel);
   vPanel.add(check);
   vPanel.add(check2);
@@ -263,11 +228,8 @@ function submitHandler_(e) {
 
 /*
 * Class that represents an individual's committed date
-* Each ProcessRunSheet_ is made up of one or more ProcessRecord_
-* Each ProcessRecord_ is a row in spreadsheet
-*
-* A ProcessRecord_ is data represented for a process: processID, Name, Steps, Tools, Recipes
-* 
+* Each UserRecord is made up of timestam, userid and datebook
+* Each UserRecord is a row in spreadsheet
 */
 function UserRecord() {
   this.timestamp = "";
@@ -395,7 +357,7 @@ function decorateLabel1_(label) {
 
 
 /*
-* Below are all the tests
+* Below are the unit tests. Run them before embedding this webapp
 */
 function testGetUserRecord() {
   var dateRecords = new DateRecords();
