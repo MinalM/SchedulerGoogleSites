@@ -8,6 +8,7 @@ var LABEL_WIDTH="400";
 var TEXTBOX_WIDTH="400";
 // Spreadsheet where all the time booking data is stored
 var SPREADSHEET_ID = "$GOOGLESPREADSHEETID$";
+var SHEETNAME = "$SHEETNAMEFROMSPREADSHEET$";
 var MAXPLAYERCOUNT = 10;
 
 
@@ -285,7 +286,7 @@ function DateRecords() {
 
   //this gets the date records of user for a particular date
   this.getDateRecords = function(dateBooked) {
-    var sheet  = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName("TimeBooking");
+    var sheet  = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEETNAME);
     var lastRow = sheet.getLastRow();
     var range = sheet.getRange("A2:C"+lastRow);
     // iterate over the entire range to find TimeSheets
